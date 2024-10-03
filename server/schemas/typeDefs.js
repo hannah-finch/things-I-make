@@ -6,12 +6,21 @@ scalar Date
   }
 
   type Mutation {
-    createArtThing (title: String!, description: String, date: Date, image: String): ArtThing
+    createArtThing (title: String, description: String, date: Date, image: String): ArtThing
+    createCraftThing (title: String, description: String, date: Date, image: String): CraftThing
   }
   
   type ArtThing {
     _id: ID!
-    title: String!
+    title: String
+    description: String
+    date: Date
+    image: String
+  }
+
+  type CraftThing {
+    _id: ID!
+    title: String
     description: String
     date: Date
     image: String

@@ -22,6 +22,10 @@ const resolvers = {
       const artThing = await ArtThing.create(input);
       return artThing;
     },
+    createCraftThing: async (_, input) => {
+      const craftThing = await CraftThing.create(input);
+      return craftThing;
+    },
   },
 };
 

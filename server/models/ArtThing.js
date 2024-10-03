@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const artThingSchema = new Schema({
   title: {
     type: String,
-    required: true,
+    default: "Untitled"
   },
   description: {
     type: String,
