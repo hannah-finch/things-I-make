@@ -31,7 +31,7 @@ const startApolloServer = async () => {
 
   db.once("open", () => {
     app.listen(PORT, () =>
-      console.log(`Server live at http://localhost:${PORT}`)
+      console.log(`Server live at http://localhost:${PORT}/graphql`)
     );
   });
 };
