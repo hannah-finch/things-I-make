@@ -31,6 +31,7 @@ const devThingSchema = new Schema({
   ],
   github: {
     type: String,
+    default: "https://github.com/hannah-finch"
   },
   deployed: {
     type: String,

@@ -3,10 +3,11 @@ const { Schema, model } = require("mongoose");
 const musicThingSchema = new Schema({
   title: {
     type: String,
-    default: "Untitled"
+    default: "Untitled",
   },
   lyrics: {
     type: String,
+    default: "Lyrics unavailable",
   },
   date: {
     type: Date,
