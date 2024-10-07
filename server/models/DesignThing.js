@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const designThingSchema = new Schema({
   title: {
     type: String,
-    required: true,
+    default: "Untitled"
   },
   description: {
     type: String,
@@ -14,8 +14,10 @@ const designThingSchema = new Schema({
   },
   image: {
     type: String,
-    required: true,
+    default: "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
 });
 
-module.exports = designThingSchema;
+const DesignThing = model("DesignThing", designThingSchema);
+
+module.exports = DesignThing;

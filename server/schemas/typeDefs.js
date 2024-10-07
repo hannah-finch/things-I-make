@@ -25,6 +25,36 @@ scalar Date
     date: Date
     image: String
   }
+
+    type DesignThing {
+    _id: ID!
+    title: String
+    description: String
+    date: Date
+    image: String
+  }
+
+    type DevThing {
+    _id: ID!
+    title: String
+    description: String
+    date: Date
+    image: String
+    video: String
+    tech: [String]
+    collab: [String]
+    github: String
+    deployed: String
+  }
+
+    type MusicThing {
+    _id: ID!
+    title: String
+    lyrics: String
+    date: Date
+    image: String
+    cover: Boolean
+  }
 `;
 
 module.exports = typeDefs;

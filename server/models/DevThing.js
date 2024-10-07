@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const devThingSchema = new Schema({
   title: {
     type: String,
-    required: true,
+    default: "Untitled"
   },
   description: {
     type: String,
@@ -14,14 +14,17 @@ const devThingSchema = new Schema({
   },
   image: {
     type: String,
-    required: true,
+    default: "https://images.pexels.com/photos/3888149/pexels-photo-3888149.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+  },
+  video: {
+    type: String,
   },
   tech: [
     {
       type: String,
     },
   ],
-  collaborators: [
+  collab: [
     {
       type: String,
     },
@@ -32,9 +35,9 @@ const devThingSchema = new Schema({
   deployed: {
     type: String,
   },
-  video: {
-    type: String,
-  },
+
 });
 
-module.exports = devThingSchema;
+const DevThing = model("DevThing", devThingSchema);
+
+module.exports = DevThing;
