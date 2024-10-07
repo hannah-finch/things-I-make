@@ -1,14 +1,15 @@
-import './App.css'
-
-import { Button } from "@material-tailwind/react";
+import { Outlet } from "react-router-dom"
+import "./App.css";
 
 function App() {
   return (
     <>
-    <Button>Button</Button>
-
+      <main>
+        <Outlet />
+      </main>
+      
     </>
-  )
+  );
 }
 
-export default App
+export default App;
