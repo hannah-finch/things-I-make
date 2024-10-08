@@ -1,3 +1,90 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  --blue-light: #e2f4ef;
+  --blue-mid: #3B8EA5;
+  --blue-dark: #2D728F;
+  --green: #8FB339;
+  --yellow: #E4CC37;
+  --gray-light: #f0f0f0;
+  --shadow-1: 0 0 14px #2a2a2a24;
+}
+
+body {
+  font-family: Quicksand;
+}
+
+h4 {
+  font-weight: bold;
+  /* letter-spacing: 1px; */
+}
+
+.test {
+  border: 2px solid red;
+  height: 600px;
+}
+
+/* Misc classes ---------------------------------------------------------- */
+
+.hidden {
+  display: none;
+}
+
+/* Buttons and links styles ---------------------------------------------- */
+
+.btn-row {
+  display: flex;
+  gap: 20px
+}
+
+.link-1 {
+  padding: 8px 12px;
+  border-radius: 10px;
+  position: relative;
+  transition: .3s;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+
+.link-1:hover {
+  background-color: var(--blue-light);
+}
+
+.link-2 {
+  padding: 8px 12px;
+  transition: .3s;
+  text-wrap: nowrap;
+}
+
+.link-2:hover{
+  background-color: var(--gray-light);
+}
+
+/* Navbar Styles --------------------------------------------------------- */
+
+nav {
+  padding: 10px 5%;
+  box-shadow: var(--shadow-1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* DropMenu styles -------------------------------------------------------- */
+
+.drop-menu {
+  background-color: white;
+  box-shadow: var(--shadow-1);
+  position: absolute;
+  top: 100%;
+  right: -7%;
+  text-align: center;
+  border-radius: 20px;
+  padding: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+}
+
+
