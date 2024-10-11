@@ -1,10 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
+import "./reset.css";
 import "./index.css";
 
-import { ThemeProvider } from "@material-tailwind/react";
+import App from "./App";
+
 
 // Import pages:
 import HomePage from "./pages/HomePage";
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
         element: <HomePage/>,
       },
       {
+        path: "/:section",
+        element: <HomePage/>
+      },
+      {
         path: "/contact",
         element: <ContactPage/>
       },
@@ -35,8 +40,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ThemeProvider>
+
       <RouterProvider router={router} />
-    </ThemeProvider>
+
   </React.StrictMode>
 );
