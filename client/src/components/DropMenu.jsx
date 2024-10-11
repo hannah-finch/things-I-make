@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 function DropMenu(prop) {
-  const [isHover, setIsHover] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const OptionList = prop.options.map((option, key) => {
     return (
@@ -13,17 +14,24 @@ function DropMenu(prop) {
   });
 
   return (
-    <div
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-      className="link-1"
-      style={{ padding: "8px 12px" }}
-    >
-      {prop.text}
+    <div className="flex-col">
+      <Link
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+        className="link-1"
+        to="/"
+        // style={{ padding: "8px 12px" }}
+      >
+        <p>{prop.text}</p>
+        <ChevronDownIcon
+          className={isOpen ? "rotate-180 transition" : "transition"}
+          style={{ width: "16px", marginLeft: "6px", marginTop: "2px" }}
+        />
+      </Link>
       <div
-        className={isHover ? "drop-menu" : "hidden"}
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
+        className={isOpen ? "drop-menu" : "hidden"}
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
       >
         {OptionList}
       </div>

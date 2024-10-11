@@ -1,20 +1,22 @@
 :root {
   --blue-light: #e2f4ef;
-  --blue-mid: #3B8EA5;
-  --blue-dark: #2D728F;
-  --green: #8FB339;
-  --yellow: #E4CC37;
+  --blue-mid: #3b8ea5;
+  --blue-dark: #2d728f;
+  --green: #8fb339;
+  --yellow: #e4cc37;
   --gray-light: #f0f0f0;
   --shadow-1: 0 0 14px #2a2a2a24;
+  --shadow-2: 0 0 100px #a6a6a627;
+  --shadow-3: 0 0 6px #68686827;
+  
 }
 
 body {
-  font-family: Quicksand;
+  font-family: Quicksand, serif;
 }
 
 h4 {
   font-weight: bold;
-  /* letter-spacing: 1px; */
 }
 
 .test {
@@ -28,23 +30,35 @@ h4 {
   display: none;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
 /* Buttons and links styles ---------------------------------------------- */
 
 .btn-row {
   display: flex;
-  gap: 20px
+  gap: 10px;
 }
 
 .link-1 {
-  padding: 8px 12px;
+  padding: 8px 14px;
   border-radius: 10px;
   position: relative;
-  transition: .3s;
+  transition: 0.3s;
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  /* align-items: center; */
-  /* justify-content: center; */
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  /* text-wrap: nowrap; */
+  /* flex-wrap: nowrap;   */
 }
 
 .link-1:hover {
@@ -53,11 +67,11 @@ h4 {
 
 .link-2 {
   padding: 8px 12px;
-  transition: .3s;
+  transition: 0.3s;
   text-wrap: nowrap;
 }
 
-.link-2:hover{
+.link-2:hover {
   background-color: var(--gray-light);
 }
 
@@ -65,10 +79,21 @@ h4 {
 
 nav {
   padding: 10px 5%;
+  min-height: 35px;
   box-shadow: var(--shadow-1);
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5%;
+  min-height: 35px;
+
+  /* align-items: center; */
 }
 
 /* DropMenu styles -------------------------------------------------------- */
@@ -78,7 +103,6 @@ nav {
   box-shadow: var(--shadow-1);
   position: absolute;
   top: 100%;
-  right: -7%;
   text-align: center;
   border-radius: 20px;
   padding: 20px 0px;
@@ -87,4 +111,46 @@ nav {
   min-width: 140px;
 }
 
+/* Side menu styles ------------------------------------ */
 
+.side-menu {
+  background-color: white;
+  position: absolute;
+  /* flex-direction: column; */
+  left: 0;
+  top: 0;
+  /* height: 100vh; */
+  width: 100vw;
+  padding: 10px 5%;
+  box-shadow: var(--shadow-1);
+  /* box-shadow: var(--shadow-3); */
+
+  display: none;
+  z-index: 1000;
+  min-height: 200px;
+  /* overflow-y: hidden; */
+}
+
+/* Animations ------------------------------------------------- */
+
+.rotate-180 {
+  /* transition: .3s; */
+  transform: rotate(180deg);
+}
+
+.transition {
+  transition: 0.3s;
+}
+
+/* Responsive styles -------------------------------------- */
+
+@media screen and (max-width: 580px) {
+  .show-sm {
+    display: block;
+  }
+
+  .hidden-sm {
+    display: none;
+  }
+  
+}
