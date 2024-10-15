@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
 import DropMenu from "./DropMenu";
@@ -7,9 +7,9 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 function Navbar() {
   const [expandMenu, setExpandMenu] = useState(false);
   const expandedMenu = useRef(null);
+  const location = useLocation();
 
-
-  // click off menu to close it
+  // click off menu closes it
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -25,6 +25,11 @@ function Navbar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  // change route location closes menu
+  useEffect(() => {
+    setExpandMenu(false);
+  }, [location]);
 
   const Logo = () => {
     return (
@@ -60,7 +65,6 @@ function Navbar() {
         {/* Nav stuff that shows on small screens, when expanded */}
         {expandMenu && (
           <div ref={expandedMenu} className="hidden show-sm">
-            
             {navLinks.map((link, key) => {
               return (
                 <Link className="link-1" key={key} to={link[1]}>
@@ -70,7 +74,7 @@ function Navbar() {
             })}
             {/* <Link to="/"className="link-1">things I make</Link> */}
 
-            <div className="line-horizontal" style={{width: "260px"}}></div>
+            <div className="line-horizontal" style={{ width: "260px" }}></div>
 
             {categoryLinks.map((option, key) => {
               return (
@@ -81,8 +85,6 @@ function Navbar() {
             })}
 
             <div className="spacer"></div>
-
-
           </div>
         )}
 
