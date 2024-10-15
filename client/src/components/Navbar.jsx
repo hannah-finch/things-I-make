@@ -2,31 +2,21 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
 import DropMenu from "./DropMenu";
-import { Bars3Icon } from "@heroicons/react/24/solid";
-import { XMarkIcon } from "@heroicons/react/24/solid";
-
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 function Navbar() {
-  const [showSideMenu, setShowSideMenu] = useState(false);
-  const [width, setWidth] = useState(window.innerWidth);
-  const sideMenu = useRef(null);
+  const [expandMenu, setExpandMenu] = useState(false);
+  const expandedMenu = useRef(null);
 
-  // get the view width to show/hide navbar
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   // click off menu to close it
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (sideMenu.current && !sideMenu.current.contains(event.target)) {
-        setShowSideMenu(false);
+      if (
+        expandedMenu.current &&
+        !expandedMenu.current.contains(event.target)
+      ) {
+        setExpandMenu(false);
       }
     };
 
@@ -37,39 +27,82 @@ function Navbar() {
   }, []);
 
   const Logo = () => {
-    return <h4>Hannah B Finch</h4>;
+    return (
+      <Link to="/">
+        <h4 style={{ padding: "10px" }}>Hannah B Finch</h4>
+      </Link>
+    );
   };
 
   const toggleMenu = () => {
-    setShowSideMenu(!showSideMenu);
+    setExpandMenu(!expandMenu);
   };
 
+  // title of link followed by its target ref
   const navLinks = [
     ["contact", "/contact"],
     ["milestones", "/milestones"],
   ];
 
+  const categoryLinks = [
+    ["development", "/development"],
+    ["design", "/design"],
+    ["art", "/art"],
+    ["music", "/music"],
+    ["crafts", "/crafts"],
+  ];
+
   return (
     <>
       <nav>
-        {showSideMenu && (
-          <div className="side-menu flex-col show-sm" ref={sideMenu}>
-            <div className="menu-header">
-            <Logo />
+        <Logo />
 
-            <XMarkIcon  onClick={toggleMenu}
-            style={{ width: "24px"}}/>
-            </div>
+        {/* Nav stuff that shows on small screens, when expanded */}
+        {expandMenu && (
+          <div ref={expandedMenu} className="hidden show-sm">
+            
+            {navLinks.map((link, key) => {
+              return (
+                <Link className="link-1" key={key} to={link[1]}>
+                  {link[0]}
+                </Link>
+              );
+            })}
+            {/* <Link to="/"className="link-1">things I make</Link> */}
+
+            <div className="line-horizontal" style={{width: "260px"}}></div>
+
+            {categoryLinks.map((option, key) => {
+              return (
+                <Link className="link-1" to={option[1]} key={key}>
+                  {option[0]}
+                </Link>
+              );
+            })}
+
+            <div className="spacer"></div>
+
+
           </div>
         )}
-        <Logo />
-        {!showSideMenu && (
-          <Bars3Icon
-            onClick={toggleMenu}
-            className="hidden show-sm"
-            style={{ width: "24px" }}
-          />
-        )}
+
+        {/* icon to expand menu, only shows on small screens*/}
+        <ChevronDownIcon
+          onClick={toggleMenu}
+          className={
+            expandMenu
+              ? "rotate-180 transition hidden show-sm"
+              : "transition hidden show-sm"
+          }
+          style={{
+            width: "24px",
+            position: "absolute",
+            right: "5%",
+            bottom: "14px",
+          }}
+        />
+
+        {/* Nav stuff that shows on standard screens */}
         <div className="btn-row hidden-sm">
           {navLinks.map((link, key) => {
             return (
@@ -79,16 +112,7 @@ function Navbar() {
             );
           })}
           <div className="link-1" style={{ padding: "0" }}>
-            <DropMenu
-              text="things I make"
-              options={[
-                ["development", "/development"],
-                ["design", "/design"],
-                ["art", "/art"],
-                ["music", "/music"],
-                ["crafts", "/crafts"],
-              ]}
-            ></DropMenu>
+            <DropMenu text="things I make" options={categoryLinks}></DropMenu>
           </div>
         </div>
       </nav>
