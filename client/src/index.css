@@ -13,6 +13,7 @@
 
 body {
   font-family: Quicksand, serif;
+  margin-top: 52px;
 }
 
 h4 {
@@ -39,6 +40,16 @@ h4 {
 .flex-row {
   display: flex;
   align-items: center;
+}
+
+.line-horizontal {
+  background-color: rgb(215, 215, 215);
+  height: 1px;
+  margin: 20px 0;
+}
+
+.spacer {
+  height: 20px;
 }
 
 /* Buttons and links styles ---------------------------------------------- */
@@ -79,13 +90,21 @@ h4 {
 
 nav {
   padding: 10px 5%;
-  min-height: 35px;
+  min-height: 32px;
   box-shadow: var(--shadow-1);
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* position affects menu icon (which is absolute)  */
+  position: fixed;
+  left:0;
+  right:0;
+  top:0;
+z-index: 1000;
+background-color: white;
 }
 
+/* NOT USING CURRENTLY */
 .menu-header {
   display: flex;
   justify-content: space-between;
@@ -113,6 +132,7 @@ nav {
 
 /* Side menu styles ------------------------------------ */
 
+/* NOT USING CURRENTLY */
 .side-menu {
   background-color: white;
   position: absolute;
@@ -152,5 +172,13 @@ nav {
   .hidden-sm {
     display: none;
   }
-  
+
+  nav {
+    flex-direction: column;
+  }
+
+  /* .drop-menu {
+    position: static;
+    border-radius: 0;
+} */
 }
