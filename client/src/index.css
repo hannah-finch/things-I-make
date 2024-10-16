@@ -5,10 +5,10 @@
   --green: #8fb339;
   --yellow: #e4cc37;
   --gray-light: #f0f0f0;
+  --gray-mid: #d7d7d7;
   --shadow-1: 0 0 14px #2a2a2a24;
-  --shadow-2: 0 0 100px #a6a6a627;
+  /* --shadow-2: 0 0 100px #a6a6a627; */
   --shadow-3: 0 0 6px #68686827;
-  
 }
 
 body {
@@ -20,9 +20,20 @@ h4 {
   font-weight: bold;
 }
 
+p {
+  line-height: 1.5;
+}
+
+.text-light {
+  color: var(--gray-mid);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .6px;
+}
+
 .test {
-  border: 2px solid red;
-  height: 600px;
+  /* border: 2px solid red; */
+  height: 300px;
 }
 
 /* Misc classes ---------------------------------------------------------- */
@@ -43,7 +54,7 @@ h4 {
 }
 
 .line-horizontal {
-  background-color: rgb(215, 215, 215);
+  background-color: var(--gray-mid);
   height: 1px;
   margin: 20px 0;
 }
@@ -96,23 +107,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   /* position affects menu icon (which is absolute)  */
-  position: fixed;
-  left:0;
-  right:0;
-  top:0;
-z-index: 1000;
-background-color: white;
-}
-
-/* NOT USING CURRENTLY */
-.menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 5%;
-  min-height: 35px;
-
-  /* align-items: center; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  background-color: white;
 }
 
 /* DropMenu styles -------------------------------------------------------- */
@@ -130,25 +130,33 @@ background-color: white;
   min-width: 140px;
 }
 
-/* Side menu styles ------------------------------------ */
+/* Footer styles ------------------------------------- */
 
-/* NOT USING CURRENTLY */
-.side-menu {
-  background-color: white;
-  position: absolute;
-  /* flex-direction: column; */
-  left: 0;
-  top: 0;
-  /* height: 100vh; */
-  width: 100vw;
-  padding: 10px 5%;
+footer {
+  padding: 60px 5%;
   box-shadow: var(--shadow-1);
-  /* box-shadow: var(--shadow-3); */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-  display: none;
-  z-index: 1000;
-  min-height: 200px;
-  /* overflow-y: hidden; */
+.icon-container {
+  height: 30px;
+  width: 30px;
+  /* background-color: var(--gray-light); */
+  border-radius: 100%;
+  margin: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* box-shadow: var(--shadow-3); */
+  transition: .3s
+}
+
+.icon-container:hover {
+  background-color: var(--gray-light);
 }
 
 /* Animations ------------------------------------------------- */
