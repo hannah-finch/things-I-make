@@ -35,6 +35,10 @@ function HomePage() {
     <>
       <h1>Home</h1>
 
+      <section className="home-banner">
+
+      </section>
+
       <div className="test" ref={devSection}>
         Development
       </div>

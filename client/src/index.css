@@ -13,7 +13,7 @@
 
 body {
   font-family: Quicksand, serif;
-  margin-top: 52px;
+  /* margin-top: 52px; */
 }
 
 h4 {
@@ -107,7 +107,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   /* position affects menu icon (which is absolute)  */
-  position: absolute;
+  position: sticky;
   left: 0;
   right: 0;
   top: 0;
@@ -157,6 +157,15 @@ footer {
 
 .icon-container:hover {
   background-color: var(--gray-light);
+}
+
+/* Homepage styles ---------------------- */
+
+.home-banner {
+  background-image: url(./assets/images/test-landscape.png);
+  background-size: cover;
+  height: 1000px;
+  background-position: 50% 0%;
 }
 
 /* Animations ------------------------------------------------- */
