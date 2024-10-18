@@ -14,13 +14,12 @@ function DropMenu(prop) {
   });
 
   return (
-    <div className="flex-col">
+    <div className="flex-col flex-center-all">
       <Link
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
         className="link-1"
         to="/"
-        // style={{ padding: "8px 12px" }}
       >
         {prop.text}
         <ChevronDownIcon

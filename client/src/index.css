@@ -15,8 +15,6 @@
 body {
   font-family: Quicksand, serif;
   font-size: 16px;
-  /* background-color: #f5f3f0; */
-  /* margin-top: 52px; */
 }
 
 h1 {
@@ -25,8 +23,6 @@ h1 {
   font-weight: bold;
   font-style: italic;
   line-height: 1.3;
-
-  /* color:#7c6a52 */
 }
 
 h2 {
@@ -58,7 +54,6 @@ p {
 }
 
 .test {
-  /* border: 2px solid red; */
   height: 300px;
 }
 
@@ -71,12 +66,16 @@ p {
 .flex-col {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .flex-row {
   display: flex;
+}
+
+.flex-center-all {
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .line-horizontal {
@@ -97,13 +96,7 @@ section {
   padding: 40px 10%;
 }
 
-.flex-col-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+
 
 /* Buttons and links styles ---------------------------------------------- */
 
@@ -132,11 +125,8 @@ button {
   position: relative;
   transition: 0.3s;
   display: flex;
-  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
-  /* text-wrap: nowrap; */
-  /* flex-wrap: nowrap;   */
 }
 
 .link-1:hover {
@@ -155,7 +145,7 @@ button {
 
 .btn-green {
   background-color: var(--green);
-  border: 4px solid white;
+  border: 6px solid white;
 }
 
 .btn-green:hover {
@@ -210,13 +200,11 @@ footer {
 .icon-container {
   height: 30px;
   width: 30px;
-  /* background-color: var(--gray-light); */
   border-radius: 100%;
   margin: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: var(--shadow-3); */
   transition: 0.3s;
 }
 
@@ -229,7 +217,7 @@ footer {
 .profile-pic {
   width: 100px;
   height: 100px;
-  border: 10px solid white;
+  border: 6px solid white;
   box-shadow: var(--shadow-3);
   border-radius: 100%;
 }
@@ -267,8 +255,4 @@ footer {
     flex-direction: column;
   }
 
-  /* .drop-menu {
-    position: static;
-    border-radius: 0;
-} */
 }
