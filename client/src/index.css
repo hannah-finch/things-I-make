@@ -9,7 +9,7 @@
   --gray-mid: #d7d7d7;
   --shadow-1: 0 0 14px #2a2a2a24;
   /* --shadow-2: 0 0 100px #a6a6a627; */
-  --shadow-3: 0 0 6px #68686827;
+  --shadow-3: 0 0 6px #4f4f4f37;
 }
 
 body {
@@ -39,7 +39,6 @@ h2 {
 h3 {
   font-size: 150%;
   line-height: 1.3;
-
 }
 
 h4 {
@@ -55,7 +54,7 @@ p {
   color: var(--gray-mid);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: .6px;
+  letter-spacing: 0.6px;
 }
 
 .test {
@@ -95,7 +94,7 @@ p {
 } */
 
 section {
-  padding: 40px 10%
+  padding: 40px 10%;
 }
 
 .flex-col-center {
@@ -119,6 +118,7 @@ button {
   font-size: inherit;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .btn-row {
@@ -153,8 +153,13 @@ button {
   background-color: var(--gray-light);
 }
 
-.btn-red {
-  background-color: var(--red);
+.btn-green {
+  background-color: var(--green);
+  border: 4px solid white;
+}
+
+.btn-green:hover {
+  background-color: var(--yellow);
 }
 
 /* Navbar Styles --------------------------------------------------------- */
@@ -212,7 +217,7 @@ footer {
   align-items: center;
   justify-content: center;
   /* box-shadow: var(--shadow-3); */
-  transition: .3s
+  transition: 0.3s;
 }
 
 .icon-container:hover {

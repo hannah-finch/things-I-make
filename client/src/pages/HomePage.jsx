@@ -34,32 +34,42 @@ function HomePage() {
 
   return (
     <>
-      <section className="flex-col-center" style={{ padding: "60px 20% 0" }}>
-        <figure className="profile-pic">
-          <img className="crop-img" src="/src/assets/images/portrait.jpg"></img>
-        </figure>
-        <div className="spacer"></div>
-        <h1>Hi, I&apos;m Hannah Belle Finch. </h1>
-        <h2>I&apos;m a full-stack web developer</h2>
-        {/* <div className="spacer"></div> */}
-        <p>
-          and I make lots of other things too, like and art and music. Geerjas
-          asjdk fj asd jfa sdf asdj f lkasdj fasj dlk aks jdfj asdjf w sd kksaj
-          da sd fja scj jdalkjs elkjlkklwdkj asdjfs djsdjflakjsdlfkja sd jwljk
-          dj d asdkfj sdfj aklsjd kjfasd fjk asdfjalskjd fjaakw lkdj lksjfj
-          sdjla
-        </p>
-        <div className="spacer"></div>
-        <Link to="/development" className="flex-col-center">
-          <button className="btn-red">See things I make</button>
-          <ArrowDownIcon
-            style={{ width: "30px", paddingTop: "30px" }}
-          ></ArrowDownIcon>
-        </Link>
+      <section className="flex-col-center" style={{ paddingTop: "50px" }}>
+        <div className="flex-col-center" style={{maxWidth: "700px"}}>
+          <div className="spacer hidden-sm"></div>
+          <figure className="profile-pic">
+            <img
+              className="crop-img"
+              src="/src/assets/images/portrait.jpg"
+            ></img>
+          </figure>
+          <div className="spacer"></div>
+          <h1>Hi, I&apos;m Hannah<span className="hidden-sm"> Belle Finch</span>.</h1>
+          <h2>I&apos;m a full-stack web developer</h2>
+          {/* <div className="spacer"></div> */}
+          <p>
+            and I make lots of other things too, like and art and music. Geerjas
+            asjdk fj asd jfa sdf asdj f lkasdj fasj dlk aks jdfj asdjf w sd
+            kksaj da sd fja scj jdalkjs elkjlkklwdkj asdjfs djsdjflakjsdlfkja sd
+            jwljk dj d asdkfj sdfj aklsjd kjfasd fjk asdfjalskjd fjaakw lkdj
+            lksjfj sdjla
+          </p>
+          <div className="spacer"></div>
+          <Link
+            to="/development"
+            className="flex-col-center"
+            style={{ zIndex: "100" }}
+          >
+            <button className="btn-green">See things I make</button>
+            <ArrowDownIcon
+              style={{ width: "30px", paddingTop: "30px" }}
+            ></ArrowDownIcon>
+          </Link>
+        </div>
       </section>
       <img
         src="src/assets/images/test-landscape.png"
-        style={{ width: "100%" }}
+        style={{ width: "100%", marginTop: "-8%" }}
       ></img>
 
       <div className="test" ref={devSection}>
