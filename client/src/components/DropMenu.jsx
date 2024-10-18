@@ -22,7 +22,7 @@ function DropMenu(prop) {
         to="/"
         // style={{ padding: "8px 12px" }}
       >
-        <p>{prop.text}</p>
+        {prop.text}
         <ChevronDownIcon
           className={isOpen ? "rotate-180 transition" : "transition"}
           style={{ width: "16px", marginLeft: "6px", marginTop: "2px" }}

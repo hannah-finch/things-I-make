@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { ArrowDownIcon } from "@heroicons/react/24/outline";
 
 function HomePage() {
   const devSection = useRef(null);
@@ -33,11 +34,33 @@ function HomePage() {
 
   return (
     <>
-      <h1>Home</h1>
-
-      <section className="home-banner">
-
+      <section className="flex-col-center" style={{ padding: "60px 20% 0" }}>
+        <figure className="profile-pic">
+          <img className="crop-img" src="/src/assets/images/portrait.jpg"></img>
+        </figure>
+        <div className="spacer"></div>
+        <h1>Hi, I&apos;m Hannah Belle Finch. </h1>
+        <h2>I&apos;m a full-stack web developer</h2>
+        {/* <div className="spacer"></div> */}
+        <p>
+          and I make lots of other things too, like and art and music. Geerjas
+          asjdk fj asd jfa sdf asdj f lkasdj fasj dlk aks jdfj asdjf w sd kksaj
+          da sd fja scj jdalkjs elkjlkklwdkj asdjfs djsdjflakjsdlfkja sd jwljk
+          dj d asdkfj sdfj aklsjd kjfasd fjk asdfjalskjd fjaakw lkdj lksjfj
+          sdjla
+        </p>
+        <div className="spacer"></div>
+        <Link to="/development" className="flex-col-center">
+          <button className="btn-red">See things I make</button>
+          <ArrowDownIcon
+            style={{ width: "30px", paddingTop: "30px" }}
+          ></ArrowDownIcon>
+        </Link>
       </section>
+      <img
+        src="src/assets/images/test-landscape.png"
+        style={{ width: "100%" }}
+      ></img>
 
       <div className="test" ref={devSection}>
         Development
