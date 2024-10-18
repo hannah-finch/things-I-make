@@ -27,7 +27,6 @@ function Footer() {
           >
             <FontAwesomeIcon icon={link[1]} size="md" color="#d7d7d7" />
           </a>
-          
         })}
 
       </div>
@@ -37,7 +36,7 @@ function Footer() {
         style={{ width: "100%", marginBottom: "40px" }}
       ></div>
       <p className="text-light">
-        Designed and coded with love, by Hannah B Finch <br></br>Copyright ©
+        Designed and coded with care, by Hannah B Finch <br></br>Copyright ©
         2024 Hannah B Finch
       </p>
     </footer>

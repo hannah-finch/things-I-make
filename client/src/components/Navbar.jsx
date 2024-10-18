@@ -72,7 +72,6 @@ function Navbar() {
                 </Link>
               );
             })}
-            {/* <Link to="/"className="link-1">things I make</Link> */}
 
             <div className="line-horizontal" style={{ width: "260px" }}></div>
 

@@ -14,15 +14,14 @@ function DropMenu(prop) {
   });
 
   return (
-    <div className="flex-col">
+    <div className="flex-col flex-center-all">
       <Link
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
         className="link-1"
         to="/"
-        // style={{ padding: "8px 12px" }}
       >
-        <p>{prop.text}</p>
+        {prop.text}
         <ChevronDownIcon
           className={isOpen ? "rotate-180 transition" : "transition"}
           style={{ width: "16px", marginLeft: "6px", marginTop: "2px" }}
