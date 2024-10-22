@@ -43,7 +43,7 @@ function HomePage() {
           <figure className="profile-pic">
             <img
               className="crop-img"
-              src="/src/assets/images/portrait.jpg"
+              src="/src/assets/images/profile-sq-color.jpg"
             ></img>
           </figure>
           <div className="spacer"></div>
