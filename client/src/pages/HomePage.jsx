@@ -1,16 +1,21 @@
 import { useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useQuery } from '@apollo/client';
+import { useQuery } from "@apollo/client";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 
 // import { GET_CRAFTS, GET_DESIGNS, GET_DEVS, GET_MUSICS } from "../utils/queries";
 import { GET_ARTS } from "../utils/queries";
 
+import ArtCard from "../components/cards/ArtCard";
+import CraftCard from "../components/cards/CraftCard";
+import DesignCard from "../components/cards/DesignCard";
+import DevCard from "../components/cards/DevCard";
+import MusicCard from "../components/cards/MusicCard"
+
 
 function HomePage() {
-  const { loading, data } = useQuery(GET_ARTS);
-  const artThings = data ? data.artThings : [];
-  // console.log(artThings)
+  // const { loading, data } = useQuery(GET_ARTS);
+  // const artThings = data ? data.artThings : [];
 
   const devSection = useRef(null);
   const designSection = useRef(null);
@@ -24,9 +29,6 @@ function HomePage() {
   // const { loadingDesigns, dataDesigns } = useQuery(GET_DESIGNS);
   // const { loadingDevs, dataDevs } = useQuery(GET_DEVS);
   // const { loadingMusics, dataMusics } = useQuery(GET_MUSICS);
-
-
-
 
   useEffect(() => {
     const scrollSpot = params.section;
@@ -95,26 +97,23 @@ function HomePage() {
 
       <div className="test" ref={devSection}>
         Development
+        <DevCard></DevCard>
       </div>
       <div className="test" ref={designSection} id="design-section">
         Design
+        <DesignCard></DesignCard>
       </div>
-
       <div className="test" ref={artSection} id="artSec">
         Art
-      {loading ? <h1>LOADING...</h1>
-      : <h1>{artThings[0].title}</h1>}
-
-
-{/* {artThings.title} */}
-        
+        <ArtCard></ArtCard>
       </div>
-
       <div className="test" ref={musicSection}>
         Music
+        <MusicCard></MusicCard>
       </div>
       <div className="test" ref={craftSection}>
         Crafts
+        <CraftCard></CraftCard>
       </div>
     </>
   );
