@@ -1,10 +1,6 @@
 import { useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useQuery } from "@apollo/client";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
-
-// import { GET_CRAFTS, GET_DESIGNS, GET_DEVS, GET_MUSICS } from "../utils/queries";
-import { GET_ARTS } from "../utils/queries";
 
 import ArtCard from "../components/cards/ArtCard";
 import CraftCard from "../components/cards/CraftCard";
@@ -14,8 +10,6 @@ import MusicCard from "../components/cards/MusicCard"
 
 
 function HomePage() {
-  // const { loading, data } = useQuery(GET_ARTS);
-  // const artThings = data ? data.artThings : [];
 
   const devSection = useRef(null);
   const designSection = useRef(null);
@@ -24,11 +18,6 @@ function HomePage() {
   const craftSection = useRef(null);
 
   const params = useParams();
-
-  // const { loadingCrafts, dataCrafts } = useQuery(GET_CRAFTS);
-  // const { loadingDesigns, dataDesigns } = useQuery(GET_DESIGNS);
-  // const { loadingDevs, dataDevs } = useQuery(GET_DEVS);
-  // const { loadingMusics, dataMusics } = useQuery(GET_MUSICS);
 
   useEffect(() => {
     const scrollSpot = params.section;

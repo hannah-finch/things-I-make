@@ -5,7 +5,21 @@ function DevCard() {
   const { loading, data } = useQuery(GET_DEVS);
   const devThings = data ? data.devThings : [];
 
-  return <>{loading ? <h1>LOADING...</h1> : <h1>{devThings[0].title}</h1>}</>;
+  return (
+    <>
+      {loading ? (
+        <h1>LOADING...</h1>
+      ) : (
+        devThings.map((thing, key) => {
+          return (
+            <div key={key}>
+              <h1>{thing.title}</h1>
+            </div>
+          );
+        })
+      )}
+    </>
+  );
 }
 
 export default DevCard;

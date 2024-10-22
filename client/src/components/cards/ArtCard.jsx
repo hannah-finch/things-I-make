@@ -5,7 +5,21 @@ function ArtCard() {
   const { loading, data } = useQuery(GET_ARTS);
   const artThings = data ? data.artThings : [];
 
-  return <>{loading ? <h1>LOADING...</h1> : <h1>{artThings[0].title}</h1>}</>;
+  return (
+    <>
+      {loading ? (
+        <h1>LOADING...</h1>
+      ) : (
+        artThings.map((thing, key) => {
+          return (
+            <div key={key}>
+              <h1>{thing.title}</h1>
+            </div>
+          );
+        })
+      )}
+    </>
+  );
 }
 
 export default ArtCard;
