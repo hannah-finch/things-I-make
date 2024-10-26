@@ -6,7 +6,8 @@ import ArtCard from "../components/cards/ArtCard";
 import CraftCard from "../components/cards/CraftCard";
 import DesignCard from "../components/cards/DesignCard";
 import DevCard from "../components/cards/DevCard";
-import MusicCard from "../components/cards/MusicCard"
+import MusicCard from "../components/cards/MusicCard";
+import ExpandCard from "../components/cards/ExpandCard";
 
 
 function HomePage() {
