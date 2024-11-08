@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 
 import { useQuery } from "@apollo/client";
 import { GET_ARTS } from "../../utils/queries";
@@ -10,52 +10,59 @@ function ArtCard() {
   // carousel stuff.....
 
   const [scrollPosition, setScrollPosition] = useState(0);
-  const cardWidth = 400;
+  const cardContainerWidth = 300;
   const cardsToScroll = 3;
-  const slideWidth = cardWidth*cardsToScroll;
+  const slideWidth = cardContainerWidth * cardsToScroll;
   const numOfCards = artThings.length;
 
   function scrollLeft() {
     if (scrollPosition < 0) {
-    const newPosition = scrollPosition + (cardWidth*cardsToScroll);
-    setScrollPosition(newPosition)
+      const newPosition = scrollPosition + cardContainerWidth * cardsToScroll;
+      setScrollPosition(newPosition);
     }
-    console.log(scrollPosition)
   }
 
   function scrollRight() {
-    if (scrollPosition > (-(numOfCards*cardWidth-cardWidth*cardsToScroll))) {
-    const newPosition = scrollPosition - (cardWidth*cardsToScroll);
-    setScrollPosition(newPosition)
+    if (
+      scrollPosition >
+      -(numOfCards * cardContainerWidth - cardContainerWidth * cardsToScroll)
+    ) {
+      const newPosition = scrollPosition - cardContainerWidth * cardsToScroll;
+      setScrollPosition(newPosition);
     }
-    console.log(scrollPosition)
-  } 
+  }
 
   // end of carousel stuff.............
 
   return (
     <>
       <div className="center">
-        <div className="wrapper" style={{width: `${slideWidth}px`}}>
-          <div className="inner" style={{transform: `translateX(${scrollPosition}px)`}}>
-
-      {loading ? (
-        <h1>LOADING...</h1>
-      ) : (
-        artThings.map((thing, key) => {
-          return (
-            <div key={key} className="card" style={{width: `${cardWidth}px`}}>
-              <img src={thing.image} className="card-img"></img>
-              <div className="content">
-                <h1>{thing.title}</h1>
-                <h3>{thing.description}</h3>
-              </div>
-            </div>
-          );
-        })
-      )}
-
-           
+        <div className="wrapper" style={{ width: `${slideWidth}px` }}>
+          <div
+            className="inner"
+            style={{ transform: `translateX(${scrollPosition}px)` }}
+          >
+            {loading ? (
+              <h1>LOADING...</h1>
+            ) : (
+              artThings.map((thing, key) => {
+                return (
+                  <div
+                    key={key}
+                    className="card-container"
+                    style={{ width: `${cardContainerWidth}px` }}
+                  >
+                    <div className="card">
+                      {/* <img src={thing.image} className="card-img"></img>
+                      <div className="content">
+                        <h1>{thing.title}</h1>
+                        <h3>{thing.description}</h3>
+                      </div> */}
+                    </div>
+                  </div>
+                );
+              })
+            )}
           </div>
         </div>
 
@@ -64,7 +71,6 @@ function ArtCard() {
           <button className="" onClick={scrollRight}></button>
         </div>
       </div>
-
     </>
   );
 }

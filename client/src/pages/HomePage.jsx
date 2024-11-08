@@ -2,6 +2,13 @@ import { useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 
+import Carousel from "../components/Carousel";
+
+import { useQuery } from "@apollo/client";
+import { GET_ARTS } from "../utils/queries";
+
+import ArtSection from "../components/ArtSection";
+
 import ArtCard from "../components/cards/ArtCard";
 import CraftCard from "../components/cards/CraftCard";
 import DesignCard from "../components/cards/DesignCard";
@@ -9,9 +16,7 @@ import DevCard from "../components/cards/DevCard";
 import MusicCard from "../components/cards/MusicCard";
 import ExpandCard from "../components/cards/ExpandCard";
 
-
 function HomePage() {
-
   const devSection = useRef(null);
   const designSection = useRef(null);
   const artSection = useRef(null);
@@ -40,6 +45,18 @@ function HomePage() {
         break;
     }
   }, [params]);
+
+  // const ArtSection = () => {
+  //   return (
+  //     <>
+  //       <div className="test-2">
+  //         Art
+  //         <Carousel></Carousel>
+  //         <ArtCard></ArtCard>
+  //       </div>
+  //     </>
+  //   );
+  // };
 
   return (
     <>
@@ -93,10 +110,14 @@ function HomePage() {
         Design
         <DesignCard></DesignCard>
       </div>
-      <div className="test-2" ref={artSection} id="artSec">
+
+      <ArtSection ref={artSection} id="artSec"></ArtSection>
+
+      {/* <div className="test-2" ref={artSection} id="artSec">
         Art
+        <Carousel items={artThings}></Carousel>
         <ArtCard></ArtCard>
-      </div>
+      </div> */}
       <div className="test" ref={musicSection}>
         Music
         <MusicCard></MusicCard>
