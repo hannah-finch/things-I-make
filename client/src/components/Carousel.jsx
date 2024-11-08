@@ -19,6 +19,8 @@ function Carousel({ items, cardContainerWidth, cardsPerSlide, CardComponent }) {
     if (scrollPosition < 0) {
       const newPosition = scrollPosition + cardContainerWidth * cardsPerSlide;
       setScrollPosition(newPosition);
+    } else {
+      setScrollPosition(-(numOfCards * cardContainerWidth - cardContainerWidth * cardsPerSlide))
     }
   }
 
@@ -29,12 +31,14 @@ function Carousel({ items, cardContainerWidth, cardsPerSlide, CardComponent }) {
     ) {
       const newPosition = scrollPosition - cardContainerWidth * cardsPerSlide;
       setScrollPosition(newPosition);
+    } else {
+      setScrollPosition(0)
     }
   }
 
   return (
     <>
-      <div className="center">
+      <div className="flex-col flex-center-all center">
         <div className="wrapper" style={{ width: `${slideWidth}px` }}>
           <div
             className="inner"
@@ -58,9 +62,9 @@ function Carousel({ items, cardContainerWidth, cardsPerSlide, CardComponent }) {
           </div>
         </div>
 
-        <div className="map">
-          <button className="" onClick={scrollLeft}></button>
-          <button className="" onClick={scrollRight}></button>
+        <div className="btn-row">
+          <button className="scroll-btn" onClick={scrollLeft}>&lt;</button>
+          <button className="scroll-btn" onClick={scrollRight}>&gt;</button>
         </div>
       </div>
     </>

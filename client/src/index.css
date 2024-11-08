@@ -229,17 +229,11 @@ footer {
 
 /* Carousel styles ---------------------------------- */
 
-.test-2 {
+.carousel-section {
   overflow: hidden;
   padding: 40px 0;
 }
 
-.center {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 
 .wrapper {
   display: flex;
@@ -258,33 +252,21 @@ footer {
   box-shadow: var(--shadow-3);
 }
 
+.scroll-btn {
+  background-color: var(--gray-light);
+  color: var(--gray-mid);
+  width:  26px;
+  height: 26px;
+  border-radius: 100%;
+  padding:0;
+  margin: 30px 6px;
+  transition: .3s;
+  box-shadow: none;
+}
 
-.map {
-  margin-top: 1em;
-  & > button {
-    all: unset;
-    background: var(--blue-mid);
-    border: 5px solid var(--blue-mid);
-    cursor: pointer;
-    margin: 0 0.3em;
-    position: relative;
-    user-select: none;
-    border-radius: 100%;
-    height: .5em;
-    width: .5em;
-
-    &.active {
-      &:after {
-        background: white;
-        content: "";
-        position: absolute;
-        transform: translate(0%, -50%);
-        border-radius: 100%;
-        height: .5em;
-        width: .5em;
-      }
-    }
-  }
+.scroll-btn:hover {
+  background-color: var(--green);
+  color: white;
 }
 
 

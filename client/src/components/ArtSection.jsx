@@ -26,7 +26,7 @@ function ArtSection() {
 
   return (
     <>
-      <div className="test-2">
+      <section className="carousel-section">
         Art
         {loading ? (
           <h1>loading...</h1>
@@ -38,7 +38,7 @@ function ArtSection() {
             CardComponent={CardComponent}
           ></Carousel>
         )}
-      </div>
+      </section>
     </>
   );
 }
