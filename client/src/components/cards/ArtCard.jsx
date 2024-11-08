@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import { useQuery } from "@apollo/client";
 import { GET_ARTS } from "../../utils/queries";
 
@@ -7,119 +9,62 @@ function ArtCard() {
 
   // carousel stuff.....
 
-  const buttonsWrapper = document.querySelector(".map");
-  const slides = document.querySelector(".inner");
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const cardWidth = 400;
+  const cardsToScroll = 3;
+  const slideWidth = cardWidth*cardsToScroll;
+  const numOfCards = artThings.length;
 
-  buttonsWrapper.addEventListener("click", (e) => {
-    if (e.target.nodeName === "BUTTON") {
-      Array.from(buttonsWrapper.children).forEach((item) =>
-        item.classList.remove("active")
-      );
-      if (e.target.classList.contains("first")) {
-        slides.style.transform = "translateX(-0%)";
-        e.target.classList.add("active");
-      } else if (e.target.classList.contains("second")) {
-        slides.style.transform = "translateX(-33.33333333333333%)";
-        e.target.classList.add("active");
-      } else if (e.target.classList.contains("third")) {
-        slides.style.transform = "translatex(-66.6666666667%)";
-        e.target.classList.add("active");
-      }
+  function scrollLeft() {
+    if (scrollPosition < 0) {
+    const newPosition = scrollPosition + (cardWidth*cardsToScroll);
+    setScrollPosition(newPosition)
     }
-  });
+    console.log(scrollPosition)
+  }
+
+  function scrollRight() {
+    if (scrollPosition > (-(numOfCards*cardWidth-cardWidth*cardsToScroll))) {
+    const newPosition = scrollPosition - (cardWidth*cardsToScroll);
+    setScrollPosition(newPosition)
+    }
+    console.log(scrollPosition)
+  } 
 
   // end of carousel stuff.............
 
   return (
     <>
       <div className="center">
-        <div className="wrapper">
-          <div className="inner">
-            <div className="card">
-              <img src="https://images.pexels.com/photos/22147574/pexels-photo-22147574/free-photo-of-two-girls-riding-bicycles-and-a-dog-running-on-a-countryside-road.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"></img>
-              <div className="content">
-                <h1>Product Design</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://images.pexels.com/photos/22147574/pexels-photo-22147574/free-photo-of-two-girls-riding-bicycles-and-a-dog-running-on-a-countryside-road.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"></img>
-              <div className="content">
-                <h1>Custom Website</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://images.pexels.com/photos/22147574/pexels-photo-22147574/free-photo-of-two-girls-riding-bicycles-and-a-dog-running-on-a-countryside-road.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"></img>
-              <div className="content">
-                <h1>Digital Marketing</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://images.pexels.com/photos/22147574/pexels-photo-22147574/free-photo-of-two-girls-riding-bicycles-and-a-dog-running-on-a-countryside-road.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"></img>
-              <div className="content">
-                <h1>Digital Marketing</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://images.pexels.com/photos/22147574/pexels-photo-22147574/free-photo-of-two-girls-riding-bicycles-and-a-dog-running-on-a-countryside-road.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"></img>
-              <div className="content">
-                <h1>Digital Marketing</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://images.pexels.com/photos/22147574/pexels-photo-22147574/free-photo-of-two-girls-riding-bicycles-and-a-dog-running-on-a-countryside-road.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load"></img>
-              <div className="content">
-                <h1>Digital Marketing</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://colorlib.com/preview/theme/seogo/img/case_study/1.png"></img>
-              <div className="content">
-                <h1>Digital Marketing</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://colorlib.com/preview/theme/seogo/img/case_study/2.png"></img>
-              <div className="content">
-                <h1>Digital Marketing</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-            <div className="card">
-              <img src="https://colorlib.com/preview/theme/seogo/img/case_study/3.png"></img>
-              <div className="content">
-                <h1>Digital Marketing</h1>
-                <h3>UI/UX, Design</h3>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div className="wrapper" style={{width: `${slideWidth}px`}}>
+          <div className="inner" style={{transform: `translateX(${scrollPosition}px)`}}>
 
-        <div className="map">
-          <button className="active first"></button>
-          <button className="second"></button>
-          <button className="third"></button>
-        </div>
-      </div>
-
-      {/* {loading ? (
+      {loading ? (
         <h1>LOADING...</h1>
       ) : (
         artThings.map((thing, key) => {
           return (
-            <div key={key} className="card">
+            <div key={key} className="card" style={{width: `${cardWidth}px`}}>
               <img src={thing.image} className="card-img"></img>
-              <h3>{thing.title}</h3>
+              <div className="content">
+                <h1>{thing.title}</h1>
+                <h3>{thing.description}</h3>
+              </div>
             </div>
           );
         })
-      )} */}
+      )}
+
+           
+          </div>
+        </div>
+
+        <div className="map">
+          <button className="" onClick={scrollLeft}></button>
+          <button className="" onClick={scrollRight}></button>
+        </div>
+      </div>
+
     </>
   );
 }
