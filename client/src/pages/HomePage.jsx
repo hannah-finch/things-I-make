@@ -93,7 +93,7 @@ function HomePage() {
         Design
         <DesignCard></DesignCard>
       </div>
-      <div className="card-section" ref={artSection} id="artSec">
+      <div className="test-2" ref={artSection} id="artSec">
         Art
         <ArtCard></ArtCard>
       </div>
