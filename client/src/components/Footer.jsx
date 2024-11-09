@@ -25,7 +25,7 @@ function Footer() {
             target="_blank"
             className="icon-container"
           >
-            <FontAwesomeIcon icon={link[1]} size="md" color="#d7d7d7" />
+            <FontAwesomeIcon icon={link[1]} color="#d7d7d7" />
           </a>
         })}
 

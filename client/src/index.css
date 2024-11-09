@@ -8,7 +8,7 @@
   --gray-light: #f0f0f0;
   --gray-mid: #d7d7d7;
   --shadow-1: 0 0 14px #2a2a2a24;
-  /* --shadow-2: 0 0 100px #a6a6a627; */
+  --shadow-2: 0 0 3px #00000037;;
   --shadow-3: 0 0 6px #4f4f4f3f;
 }
 
@@ -53,7 +53,7 @@ p {
 }
 
 .test {
-  height: 300px;
+  min-height: 300px;
 }
 
 /* Misc classes ---------------------------------------------------------- */
@@ -106,6 +106,9 @@ button {
   box-shadow: var(--shadow-3);
   background-color: black;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: inherit;
   font-size: inherit;
   font-weight: bold;
@@ -210,7 +213,7 @@ footer {
   background-color: var(--gray-light);
 }
 
-/* Homepage styles ---------------------- */
+/* Homepage styles -------------------------------------- */
 
 .profile-pic {
   width: 100px;
@@ -226,6 +229,61 @@ footer {
   width: 100%;
   border-radius: 100%;
 }
+
+/* Carousel styles ---------------------------------- */
+
+.carousel-section {
+  overflow-x: hidden;
+  padding: 40px 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: hidden;
+  
+  & > .inner {
+    display: flex;
+    transition: all 1s ease-in-out;
+  }
+}
+
+.card {
+  margin: 10px;
+  background-color: white;
+  box-shadow: var(--shadow-3);
+}
+
+.card figure {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.crop-img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  margin-bottom: -3px;
+
+}
+
+.scroll-btn {
+  background-color: white;
+  color: black;
+  width:  26px;
+  height: 26px;
+  border-radius: 100%;
+  padding:0;
+  margin: 30px 6px;
+  transition: .3s;
+  box-shadow: none;
+}
+
+.scroll-btn:hover {
+  background-color: var(--blue-light);
+  box-shadow: var(--shadow-2);
+}
+
 
 /* Animations ------------------------------------------------- */
 
