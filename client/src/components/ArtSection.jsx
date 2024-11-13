@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_ARTS } from "../utils/queries";
 
@@ -26,6 +26,26 @@ function ArtSection() {
 
   const CardComponent = Card;
   const [selectedProject, setSelectedProject] = useState();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [cardsPerSlide, setCardsPerSlide] = useState();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth >= 1200) {
+      setCardsPerSlide("4");
+    } else if (1200 > windowWidth && windowWidth > 800) {
+      setCardsPerSlide("3");
+    } else {
+      setCardsPerSlide("2");
+    }
+  }, [windowWidth]);
 
   function Card({ thing }) {
     function handleClick() {
@@ -53,12 +73,13 @@ function ArtSection() {
         ) : (
           <Carousel
             items={artThings}
-            cardContainerWidth="300"
-            cardsPerSlide="3"
+            cardsPerSlide={cardsPerSlide}
+            cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
             CardComponent={CardComponent}
           ></Carousel>
         )}
       </section>
+      <h1> window width: {windowWidth} </h1>
       <MoreSection thing={selectedProject}></MoreSection>
     </>
   );
