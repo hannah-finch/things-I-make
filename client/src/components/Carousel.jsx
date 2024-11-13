@@ -9,7 +9,7 @@
 import { useState } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
-function Carousel({ items, cardContainerWidth, cardsPerSlide, CardComponent }) {
+function Carousel({ items, cardsPerSlide, cardContainerWidth,  CardComponent }) {
   const itemList = items;
 
   const [scrollPosition, setScrollPosition] = useState(0);
