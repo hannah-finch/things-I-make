@@ -9,12 +9,12 @@
 import { useState } from "react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 
-function Carousel({ items, cardsPerSlide, cardContainerWidth,  CardComponent }) {
+function Carousel({ items, cardsPerSlide, cardContainerWidth, CardComponent }) {
   const itemList = items;
 
   const [scrollPosition, setScrollPosition] = useState(0);
-  const slideWidth = cardContainerWidth * cardsPerSlide;
   const numOfCards = itemList.length;
+  const slideWidth = cardContainerWidth * cardsPerSlide;
 
   function scrollLeft() {
     if (scrollPosition < 0) {
@@ -41,41 +41,37 @@ function Carousel({ items, cardsPerSlide, cardContainerWidth,  CardComponent }) 
 
   return (
     <>
-
-
-        <div className="wrapper" style={{ width: `${slideWidth}px` }}>
-          <div
-            className="inner"
-            style={{ transform: `translateX(${scrollPosition}px)` }}
-          >
-            {!itemList ? (
-              <h1>LOADING...</h1>
-            ) : (
-              itemList.map((thing, key) => {
-                return (
-                  <div
-                    key={key}
-                    className="card-container"
-                    style={{ width: `${cardContainerWidth}px` }}
-                  >
-                    <CardComponent thing={thing}></CardComponent>
-                  </div>
-                );
-              })
-            )}
-          </div>
+      <div className="wrapper" style={{ width: `${slideWidth}px` }}>
+        <div
+          className="inner"
+          style={{ transform: `translateX(${scrollPosition}px)` }}
+        >
+          {!itemList ? (
+            <h1>LOADING...</h1>
+          ) : (
+            itemList.map((thing, key) => {
+              return (
+                <div
+                  key={key}
+                  className="card-container"
+                  style={{ width: `${cardContainerWidth}px` }}
+                >
+                  <CardComponent thing={thing}></CardComponent>
+                </div>
+              );
+            })
+          )}
         </div>
+      </div>
 
-        <div className="btn-row">
-          <button className="scroll-btn" onClick={scrollLeft}>
-            <ArrowLeftIcon style={{ width: "20px" }}></ArrowLeftIcon>
-          </button>
-          <button className="scroll-btn" onClick={scrollRight}>
+      <div className="btn-row">
+        <button className="scroll-btn" onClick={scrollLeft}>
+          <ArrowLeftIcon style={{ width: "20px" }}></ArrowLeftIcon>
+        </button>
+        <button className="scroll-btn" onClick={scrollRight}>
           <ArrowRightIcon style={{ width: "20px" }}></ArrowRightIcon>
-
-          </button>
-        </div>
-
+        </button>
+      </div>
     </>
   );
 }
