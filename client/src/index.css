@@ -8,7 +8,7 @@
   --gray-light: #f0f0f0;
   --gray-mid: #d7d7d7;
   --shadow-1: 0 0 14px #2a2a2a24;
-  --shadow-2: 0 0 3px #00000037;;
+  --shadow-2: 0 0 3px #00000037;
   --shadow-3: 0 0 6px #4f4f4f3f;
 }
 
@@ -94,8 +94,6 @@ p {
 section {
   padding: 40px 10%;
 }
-
-
 
 /* Buttons and links styles ---------------------------------------------- */
 
@@ -241,7 +239,7 @@ footer {
   display: flex;
   align-items: flex-start;
   overflow-x: hidden;
-  
+
   & > .inner {
     display: flex;
     transition: all 1s ease-in-out;
@@ -264,18 +262,17 @@ footer {
   height: 100%;
   width: 100%;
   margin-bottom: -3px;
-
 }
 
 .scroll-btn {
   background-color: white;
   color: black;
-  width:  26px;
+  width: 26px;
   height: 26px;
   border-radius: 100%;
-  padding:0;
+  padding: 0;
   margin: 30px 6px;
-  transition: .3s;
+  transition: 0.3s;
   box-shadow: none;
 }
 
@@ -284,6 +281,40 @@ footer {
   box-shadow: var(--shadow-2);
 }
 
+/* More info modal styles ----------------------------------------------- */
+
+.modal-background {
+  background-color: #9fc7c58a;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+  padding: 20px;
+  /* margin: 20px; */
+  max-height: 90vh;
+  overflow-y: scroll;
+}
+
+.modal figure {
+  width: 100%;
+}
+
+.modal figure img {
+  width: 100%;
+}
 
 /* Animations ------------------------------------------------- */
 
@@ -310,5 +341,4 @@ footer {
   nav {
     flex-direction: column;
   }
-
 }

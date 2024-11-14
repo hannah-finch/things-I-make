@@ -4,22 +4,6 @@ import { GET_ARTS } from "../utils/queries";
 
 import Carousel from "./Carousel";
 
-function MoreSection({ thing }) {
-  // title, description, date, image
-  return thing ? (
-    <>
-      <section>
-        <h1>TEST section for more info</h1>
-        <h1>{thing.title}</h1>
-      </section>
-    </>
-  ) : (
-    <>
-      <h1>NOTHING SELECTED</h1>
-    </>
-  );
-}
-
 function ArtSection() {
   const { loading, data } = useQuery(GET_ARTS);
   const artThings = data ? data.artThings : [];
@@ -46,6 +30,33 @@ function ArtSection() {
       setCardsPerSlide("2");
     }
   }, [windowWidth]);
+
+  function MoreSection({ thing }) {
+    // title, description, date, image
+    function handleClose() {
+      setSelectedProject();
+    }
+
+    return thing ? (
+      <>
+        <section className="modal-background">
+          <div className="modal">
+            <button onClick={handleClose}>x</button>
+            <figure>
+            <img src={thing.image}></img>
+
+            </figure>
+            <h1>TEST section for more info</h1>
+            <h1>{thing.title}</h1>
+          </div>
+        </section>
+      </>
+    ) : (
+      <>
+        <h1>NOTHING SELECTED</h1>
+      </>
+    );
+  }
 
   function Card({ thing }) {
     function handleClick() {
