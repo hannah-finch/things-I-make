@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+
 import { GET_ARTS } from "../utils/queries";
 
 import Carousel from "./Carousel";
@@ -32,29 +34,33 @@ function ArtSection() {
   }, [windowWidth]);
 
   function MoreSection({ thing }) {
-    // title, description, date, image
     function handleClose() {
       setSelectedProject();
     }
-
+    // available from db: title, description, date, image
     return thing ? (
       <>
         <section className="modal-background">
           <div className="modal">
-            <button onClick={handleClose}>x</button>
-            <figure>
-            <img src={thing.image}></img>
-
-            </figure>
-            <h1>TEST section for more info</h1>
-            <h1>{thing.title}</h1>
+            <div className="modal-header">
+              <XMarkIcon
+                style={{ width: "20px", cursor: "pointer" }}
+                onClick={handleClose}
+              ></XMarkIcon>
+            </div>
+            <div className="modal-content">
+              <figure>
+                <img src={thing.image}></img>
+              </figure>
+              <h1>{thing.title}</h1>
+              <p>{thing.description}</p>
+            </div>
+            <div className="spacer"></div>
           </div>
         </section>
       </>
     ) : (
-      <>
-        <h1>NOTHING SELECTED</h1>
-      </>
+      <></>
     );
   }
 
@@ -90,7 +96,6 @@ function ArtSection() {
           ></Carousel>
         )}
       </section>
-      <h1> window width: {windowWidth} </h1>
       <MoreSection thing={selectedProject}></MoreSection>
     </>
   );

@@ -295,16 +295,22 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 .modal {
-  background-color: white;
-  border-radius: 20px;
   box-shadow: var(--shadow-1);
+  border-radius: 20px;
+  /* max-height: 90vh; */
+  background-color: white;
+
+  
+}
+
+.modal-content {
   padding: 20px;
   /* margin: 20px; */
-  max-height: 90vh;
+  max-height: 80vh;
   overflow-y: scroll;
 }
 
@@ -314,6 +320,16 @@ footer {
 
 .modal figure img {
   width: 100%;
+}
+
+.modal-header {
+  height: 40px;
+  padding: 0 10px;
+  box-shadow: var(--shadow-1);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /* Animations ------------------------------------------------- */
