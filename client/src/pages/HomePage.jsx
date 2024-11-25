@@ -2,12 +2,11 @@ import { useRef, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 
-import ArtSection from "../components/ArtSection";
-
-import CraftCard from "../components/cards/CraftCard";
-import DesignCard from "../components/cards/DesignCard";
-import DevCard from "../components/cards/DevCard";
-import MusicCard from "../components/cards/MusicCard";
+import DevSection from "../components/sections/DevSection";
+import DesignSection from "../components/sections/DesignSection";
+import ArtSection from "../components/sections/ArtSection";
+import MusicSection from "../components/sections/MusicSection";
+import CraftSection from "../components/sections/CraftSection";
 
 function HomePage() {
   const devSection = useRef(null);
@@ -84,25 +83,19 @@ function HomePage() {
       ></img>
 
       <div className="test" ref={devSection}>
-        Development
-        <DevCard></DevCard>
+        <DevSection></DevSection>
       </div>
       <div className="test" ref={designSection} id="design-section">
-        Design
-        <DesignCard></DesignCard>
+        <DesignSection></DesignSection>
       </div>
-
       <div ref={artSection} id="artSec">
         <ArtSection></ArtSection>
       </div>
-
       <div className="test" ref={musicSection}>
-        Music
-        <MusicCard></MusicCard>
+        <MusicSection></MusicSection>
       </div>
       <div className="test" ref={craftSection}>
-        Crafts
-        <CraftCard></CraftCard>
+        <CraftSection></CraftSection>
       </div>
     </>
   );

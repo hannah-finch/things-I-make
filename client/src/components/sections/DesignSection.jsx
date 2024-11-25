@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import { GET_ARTS } from "../utils/queries";
+import { GET_ARTS } from "../../utils/queries";
 
-import Carousel from "./Carousel";
+import Carousel from "../Carousel";
 
-function ArtSection() {
+function DesignSection() {
   const { loading, data } = useQuery(GET_ARTS);
   const artThings = data ? data.artThings : [];
 
@@ -83,7 +83,7 @@ function ArtSection() {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-        <h2>Art Things</h2>
+        <h2>Design Things</h2>
         <div className="spacer"></div>
         {loading ? (
           <h1>loading...</h1>
@@ -101,4 +101,4 @@ function ArtSection() {
   );
 }
 
-export default ArtSection;
+export default DesignSection;
