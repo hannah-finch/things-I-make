@@ -2,18 +2,18 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import { GET_ARTS } from "../../utils/queries";
+import { GET_CRAFTS } from "../../utils/queries";
 
 import Carousel from "../Carousel";
 
 function CraftSection(props) {
-  const { loading, data } = useQuery(GET_ARTS);
-  const artThings = data ? data.artThings : [];
+  const { loading, data } = useQuery(GET_CRAFTS);
+  const craftThings = data ? data.craftThings : [];
 
   const CardComponent = Card;
   const [selectedProject, setSelectedProject] = useState();
-  const cardsPerSlide = props.cardsPerSlide
-  const windowWidth = props.windowWidth
+  const cardsPerSlide = props.cardsPerSlide;
+  const windowWidth = props.windowWidth;
 
   function MoreSection({ thing }) {
     function handleClose() {
@@ -66,12 +66,12 @@ function CraftSection(props) {
     <>
       <section className="flex-col flex-center-all carousel-section">
         <h2>Craft Things</h2>
-        <div className="spacer"></div>
+        <div className="line-2"></div>
         {loading ? (
           <h1>loading...</h1>
         ) : (
           <Carousel
-            items={artThings}
+            items={craftThings}
             cardsPerSlide={cardsPerSlide}
             cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
             CardComponent={CardComponent}

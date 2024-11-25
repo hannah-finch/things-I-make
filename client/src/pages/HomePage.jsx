@@ -106,19 +106,19 @@ function HomePage() {
         style={{ width: "100%", marginTop: "-8%" }}
       ></img>
 
-      <div className="test" ref={devSection}>
+      <div ref={devSection}>
         <DevSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></DevSection>
       </div>
-      <div className="test" ref={designSection} id="design-section">
+      <div ref={designSection} id="design-section">
         <DesignSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></DesignSection>
       </div>
       <div ref={artSection} id="artSec">
         <ArtSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></ArtSection>
       </div>
-      <div className="test" ref={musicSection}>
+      <div ref={musicSection}>
         <MusicSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></MusicSection>
       </div>
-      <div className="test" ref={craftSection}>
+      <div ref={craftSection}>
         <CraftSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></CraftSection>
       </div>
     </>

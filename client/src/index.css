@@ -74,10 +74,6 @@ p {
   display: inline;
 }
 
-.test {
-  min-height: 300px;
-}
-
 /* Misc classes ---------------------------------------------------------- */
 
 .hidden {
@@ -103,6 +99,13 @@ p {
   background-color: var(--gray-mid);
   height: 1px;
   margin: 20px 0;
+}
+
+.line-2 {
+  background-color: black;
+  height: 2px;
+  margin: 20px 0 40px;
+  width: 160px;
 }
 
 .spacer {
