@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -6,32 +6,14 @@ import { GET_ARTS } from "../../utils/queries";
 
 import Carousel from "../Carousel";
 
-function CraftSection() {
+function CraftSection(props) {
   const { loading, data } = useQuery(GET_ARTS);
   const artThings = data ? data.artThings : [];
 
   const CardComponent = Card;
   const [selectedProject, setSelectedProject] = useState();
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [cardsPerSlide, setCardsPerSlide] = useState();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (windowWidth >= 1200) {
-      setCardsPerSlide("4");
-    } else if (1200 > windowWidth && windowWidth > 800) {
-      setCardsPerSlide("3");
-    } else {
-      setCardsPerSlide("2");
-    }
-  }, [windowWidth]);
+  const cardsPerSlide = props.cardsPerSlide
+  const windowWidth = props.windowWidth
 
   function MoreSection({ thing }) {
     function handleClose() {
