@@ -1,37 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import { GET_ARTS } from "../utils/queries";
+import { GET_ARTS } from "../../utils/queries";
 
-import Carousel from "./Carousel";
+import Carousel from "../Carousel";
 
-function ArtSection() {
+function DesignSection(props) {
   const { loading, data } = useQuery(GET_ARTS);
   const artThings = data ? data.artThings : [];
 
   const CardComponent = Card;
   const [selectedProject, setSelectedProject] = useState();
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [cardsPerSlide, setCardsPerSlide] = useState();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    if (windowWidth >= 1200) {
-      setCardsPerSlide("4");
-    } else if (1200 > windowWidth && windowWidth > 800) {
-      setCardsPerSlide("3");
-    } else {
-      setCardsPerSlide("2");
-    }
-  }, [windowWidth]);
+  const cardsPerSlide = props.cardsPerSlide
+  const windowWidth = props.windowWidth
 
   function MoreSection({ thing }) {
     function handleClose() {
@@ -83,7 +65,7 @@ function ArtSection() {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-        <h2>Art Things</h2>
+        <h2>Design Things</h2>
         <div className="spacer"></div>
         {loading ? (
           <h1>loading...</h1>
@@ -101,4 +83,4 @@ function ArtSection() {
   );
 }
 
-export default ArtSection;
+export default DesignSection;

@@ -1,13 +1,12 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowDownIcon } from "@heroicons/react/24/outline";
 
-import ArtSection from "../components/ArtSection";
-
-import CraftCard from "../components/cards/CraftCard";
-import DesignCard from "../components/cards/DesignCard";
-import DevCard from "../components/cards/DevCard";
-import MusicCard from "../components/cards/MusicCard";
+import DevSection from "../components/sections/DevSection";
+import DesignSection from "../components/sections/DesignSection";
+import ArtSection from "../components/sections/ArtSection";
+import MusicSection from "../components/sections/MusicSection";
+import CraftSection from "../components/sections/CraftSection";
 
 function HomePage() {
   const devSection = useRef(null);
@@ -18,6 +17,10 @@ function HomePage() {
 
   const params = useParams();
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [cardsPerSlide, setCardsPerSlide] = useState();
+
+  // Scroll sections into view when clicked in navigation
   useEffect(() => {
     const scrollSpot = params.section;
     switch (scrollSpot) {
@@ -38,6 +41,26 @@ function HomePage() {
         break;
     }
   }, [params]);
+
+  // Get the window width when resized
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // set cards per slide based on window width
+  useEffect(() => {
+    if (windowWidth >= 1200) {
+      setCardsPerSlide("4");
+    } else if (1200 > windowWidth && windowWidth > 800) {
+      setCardsPerSlide("3");
+    } else {
+      setCardsPerSlide("2");
+    }
+  }, [windowWidth]);
 
   return (
     <>
@@ -84,25 +107,19 @@ function HomePage() {
       ></img>
 
       <div className="test" ref={devSection}>
-        Development
-        <DevCard></DevCard>
+        <DevSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></DevSection>
       </div>
       <div className="test" ref={designSection} id="design-section">
-        Design
-        <DesignCard></DesignCard>
+        <DesignSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></DesignSection>
       </div>
-
       <div ref={artSection} id="artSec">
-        <ArtSection></ArtSection>
+        <ArtSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></ArtSection>
       </div>
-
       <div className="test" ref={musicSection}>
-        Music
-        <MusicCard></MusicCard>
+        <MusicSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></MusicSection>
       </div>
       <div className="test" ref={craftSection}>
-        Crafts
-        <CraftCard></CraftCard>
+        <CraftSection cardsPerSlide={cardsPerSlide} windowWidth={windowWidth}></CraftSection>
       </div>
     </>
   );
