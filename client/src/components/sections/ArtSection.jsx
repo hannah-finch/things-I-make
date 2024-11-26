@@ -12,8 +12,8 @@ function ArtSection(props) {
 
   const CardComponent = Card;
   const [selectedProject, setSelectedProject] = useState();
-  const cardsPerSlide = props.cardsPerSlide
-  const windowWidth = props.windowWidth
+  const cardsPerSlide = props.cardsPerSlide;
+  const windowWidth = props.windowWidth;
 
   function MoreSection({ thing }) {
     function handleClose() {
@@ -66,7 +66,7 @@ function ArtSection(props) {
     <>
       <section className="flex-col flex-center-all carousel-section">
         <h2>Art Things</h2>
-        <div className="spacer"></div>
+        <div className="line-2"></div>
         {loading ? (
           <h1>loading...</h1>
         ) : (
