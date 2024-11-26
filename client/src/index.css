@@ -117,7 +117,7 @@ p {
 } */
 
 section {
-  padding: 40px 10%;
+  padding: 20px 10%;
 }
 
 /* Buttons and links styles ---------------------------------------------- */
@@ -269,7 +269,6 @@ footer {
 
 .carousel-section {
   overflow-x: hidden;
-  padding: 40px 0;
 }
 
 .wrapper {
