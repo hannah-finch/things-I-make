@@ -62,6 +62,7 @@ export const GET_MUSICS = gql`
       date
       image
       cover
+      file
     }
   }
 `;

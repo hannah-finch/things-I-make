@@ -19,7 +19,7 @@ function MusicSection(props) {
     function handleClose() {
       setSelectedProject();
     }
-    // available from db: title, description, date, image
+    // available from db: title, lyrics, date, image, cover (boolean)
     return thing ? (
       <>
         <section className="modal-background">
