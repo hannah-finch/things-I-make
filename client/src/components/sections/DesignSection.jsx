@@ -9,12 +9,12 @@ import Carousel from "../Carousel";
 function DesignSection(props) {
   const { loading, data } = useQuery(GET_DESIGNS);
   const designThings = data ? data.designThings : [];
-
+  
   const CardComponent = Card;
   const [selectedProject, setSelectedProject] = useState();
   const cardsPerSlide = props.cardsPerSlide;
   const windowWidth = props.windowWidth;
-
+  
   function MoreSection({ thing }) {
     function handleClose() {
       setSelectedProject();
@@ -28,7 +28,7 @@ function DesignSection(props) {
               <XMarkIcon
                 style={{ width: "20px", cursor: "pointer" }}
                 onClick={handleClose}
-              ></XMarkIcon>
+                ></XMarkIcon>
             </div>
             <div className="modal-content">
               <figure>

@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import { GET_ARTS } from "../../utils/queries";
+import { GET_MUSICS } from "../../utils/queries";
 
 import Carousel from "../Carousel";
 
 function MusicSection(props) {
-  const { loading, data } = useQuery(GET_ARTS);
-  const artThings = data ? data.artThings : [];
+  const { loading, data } = useQuery(GET_MUSICS);
+  const musicThings = data ? data.musicThings : [];
 
   const CardComponent = Card;
   const [selectedProject, setSelectedProject] = useState();
@@ -71,7 +71,7 @@ function MusicSection(props) {
           <h1>loading...</h1>
         ) : (
           <Carousel
-            items={artThings}
+            items={musicThings}
             cardsPerSlide={cardsPerSlide}
             cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
             CardComponent={CardComponent}

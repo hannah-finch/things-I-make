@@ -10,6 +10,9 @@
   --shadow-1: 0 0 14px #2a2a2a24;
   --shadow-2: 0 0 3px #00000037;
   --shadow-3: 0 0 6px #4f4f4f3f;
+  --shadow-4: 0 -10px 10px #76767618;
+  /* --shadow-4: 0 -7px 7px #2a2a2a24; */
+
 }
 
 body {
@@ -104,12 +107,16 @@ p {
 .line-2 {
   background-color: black;
   height: 2px;
-  margin: 20px 0 40px;
+  margin: 20px 0 30px;
   width: 160px;
 }
 
 .spacer {
   height: 20px;
+}
+
+.gray {
+  background-color: var(--gray-light);
 }
 
 /* .spacer-lg {
@@ -269,6 +276,15 @@ footer {
 
 .carousel-section {
   overflow-x: hidden;
+  /* transition: 1s; */
+  padding: 40px 0 40px;
+  /* box-shadow: var(--shadow-4); */
+  /* background-color: var(--gray-light); */
+  /* border-bottom: 1px solid black; */
+}
+
+.carousel-section:hover {
+ /* background-color: white; */
 }
 
 .wrapper {
@@ -301,13 +317,15 @@ footer {
 }
 
 .scroll-btn {
+  /* background-color: var(--blue-light); */
   background-color: white;
+  
   color: black;
-  width: 26px;
-  height: 26px;
+  width: 36px;
+  height: 36px;
   border-radius: 100%;
   padding: 0;
-  margin: 30px 6px;
+  margin: 30px 6px 0px;
   transition: 0.3s;
   box-shadow: none;
 }

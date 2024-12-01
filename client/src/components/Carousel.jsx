@@ -66,10 +66,10 @@ function Carousel({ items, cardsPerSlide, cardContainerWidth, CardComponent }) {
 
       <div className="btn-row">
         <button className="scroll-btn" onClick={scrollLeft}>
-          <ArrowLeftIcon style={{ width: "30px" }}></ArrowLeftIcon>
+          <ArrowLeftIcon style={{ width: "20px" }}></ArrowLeftIcon>
         </button>
         <button className="scroll-btn" onClick={scrollRight}>
-          <ArrowRightIcon style={{ width: "30px" }}></ArrowRightIcon>
+          <ArrowRightIcon style={{ width: "20px" }}></ArrowRightIcon>
         </button>
       </div>
     </>
