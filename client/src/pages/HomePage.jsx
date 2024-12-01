@@ -103,7 +103,7 @@ function HomePage() {
       </section>
       <img
         src="src/assets/images/test-landscape.png"
-        style={{ width: "100%", marginTop: "-8%", marginBottom: "30px" }}
+        style={{ width: "100%", marginTop: "-8%", marginBottom: "40px" }}
       ></img>
 
       <div ref={devSection}>

@@ -65,15 +65,14 @@ function MusicSection(props) {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-        <h2>Music Things</h2>
-        <div className="line-2"></div>
+        <h3 style={{ alignSelf: "flex-start" }}>Music Things</h3>
         {loading ? (
           <h1>loading...</h1>
         ) : (
           <Carousel
             items={musicThings}
             cardsPerSlide={cardsPerSlide}
-            cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
+            cardContainerWidth={(windowWidth - 110) / cardsPerSlide}
             CardComponent={CardComponent}
           ></Carousel>
         )}

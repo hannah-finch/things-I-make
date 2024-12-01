@@ -65,15 +65,14 @@ function CraftSection(props) {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-        <h2>Craft Things</h2>
-        <div className="line-2"></div>
+        <h3 style={{ alignSelf: "flex-start" }}>Craft Things</h3>
         {loading ? (
           <h1>loading...</h1>
         ) : (
           <Carousel
             items={craftThings}
             cardsPerSlide={cardsPerSlide}
-            cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
+            cardContainerWidth={(windowWidth - 110) / cardsPerSlide}
             CardComponent={CardComponent}
           ></Carousel>
         )}

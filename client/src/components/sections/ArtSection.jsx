@@ -65,15 +65,15 @@ function ArtSection(props) {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-        <h2>Art Things</h2>
-        <div className="line-2"></div>
+        <h3 style={{ alignSelf: "flex-start" }}>Art Things</h3>
+
         {loading ? (
           <h1>loading...</h1>
         ) : (
           <Carousel
             items={artThings}
             cardsPerSlide={cardsPerSlide}
-            cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
+            cardContainerWidth={(windowWidth - 110) / cardsPerSlide}
             CardComponent={CardComponent}
           ></Carousel>
         )}
