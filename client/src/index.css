@@ -297,7 +297,7 @@ footer {
   background-color: white;
   border-radius: 50px;
   box-shadow: var(--shadow-3);
-  padding: 2px;
+  padding: 6px;
 }
 
 .card figure {
@@ -306,7 +306,7 @@ footer {
 }
 
 .card figure img {
-  border-radius: 48px;
+  border-radius: 44px;
 }
 
 .crop-img {
@@ -322,10 +322,11 @@ footer {
   width: 56px;
   height: 56px;
   border-radius: 100%;
-  border: 2px solid white;
+  border: 6px solid white;
   padding: 0;
   margin: 30px;
   transition: 0.3s;
+  pointer-events: auto;
 }
 
 .scroll-btn:hover {

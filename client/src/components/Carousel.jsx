@@ -64,7 +64,7 @@ function Carousel({ items, cardsPerSlide, cardContainerWidth, CardComponent }) {
         </div>
       </div>
 
-      <div className="btn-row" style={{ position:"absolute", justifyContent: "space-between", width: "100%", transform: "translateY(30%)"}}>
+      <div className="btn-row" style={{ position:"absolute", justifyContent: "space-between", width: "100%", transform: "translateY(30%)", pointerEvents: "none"}}>
         <button className="scroll-btn" onClick={scrollLeft} >
           <ArrowLeftIcon style={{ width: "20px"}}></ArrowLeftIcon>
         </button>
