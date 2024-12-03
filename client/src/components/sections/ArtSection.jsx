@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
 
 import { GET_ARTS } from "../../utils/queries";
 
@@ -22,31 +22,23 @@ function ArtSection(props) {
     // available from db: title, description, date, image
     return thing ? (
       <>
-        <section className="modal-background">
-          <XMarkIcon
-            style={{
-              width: "30px",
-              cursor: "pointer",
-              position: "fixed",
-              right: "30px",
-              top: "10px",
-              padding: "6px",
-              backgroundColor: "white",
-              borderRadius: "100%",
-            }}
-            onClick={handleClose}
-          ></XMarkIcon>
-          <div className="modal-grid">
-            <figure>
-              <img src={thing.image}></img>
-            </figure>
-            <div className="modal-content">
-              <h1>{thing.title}</h1>
-              <div className="line-horizontal"></div>
-              <p>{thing.description}</p>
-            </div>
+        <section className="modal-grid">
+          <figure>
+            <img src={thing.image}></img>
+          </figure>
+          <div className="modal-content">
+            <h1>{thing.title}</h1>
+            <div className="line-horizontal"></div>
+            <p>{thing.description}</p>
           </div>
         </section>
+        <button className="close-btn" onClick={handleClose}>
+          <ChevronUpIcon
+            style={{
+              width: "20px",
+            }}
+          ></ChevronUpIcon>
+        </button>
       </>
     ) : (
       <></>
