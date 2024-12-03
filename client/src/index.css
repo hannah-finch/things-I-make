@@ -1,5 +1,6 @@
 :root {
   --blue-light: #e2f4ef;
+  --blue-lighter: #e5f9f6;
   --blue-mid: #3b8ea5;
   --blue-dark: #2d728f;
   --green: #8fb339;
@@ -10,6 +11,9 @@
   --shadow-1: 0 0 14px #2a2a2a24;
   --shadow-2: 0 0 3px #00000037;
   --shadow-3: 0 0 6px #4f4f4f3f;
+  --shadow-4: 0 4px 6px #2a2a2a11;
+
+  /* Shadow 4 is likeshadow 1 only on bottom */
 }
 
 body {
@@ -32,8 +36,11 @@ h2 {
 }
 
 h3 {
-  font-size: 150%;
+  font-size: 140%;
   line-height: 1.2;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid;
 }
 
 h4 {
@@ -101,20 +108,13 @@ p {
   margin: 20px 0;
 }
 
-.line-2 {
-  background-color: black;
-  height: 2px;
-  margin: 20px 0 40px;
-  width: 160px;
-}
-
 .spacer {
   height: 20px;
 }
 
-/* .spacer-lg {
-  height: 40px;
-} */
+.gray {
+  background-color: var(--gray-light);
+}
 
 section {
   padding: 20px 10%;
@@ -141,6 +141,7 @@ button {
 
 .btn-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -178,6 +179,16 @@ button {
 
 .link-3:hover {
   background-color: var(--blue-light);
+}
+
+.close-btn {
+  background-color: var(--blue-light);
+  box-shadow: var(--shadow-4);
+  border-radius: 0 0 25px 25px;
+  color: black;
+  width: 160px;
+  margin: auto;
+  padding-top: 0;
 }
 
 .btn-green {
@@ -225,6 +236,7 @@ nav {
 
 footer {
   padding: 60px 5%;
+  margin-top: 64px;
   box-shadow: var(--shadow-1);
   display: flex;
   flex-direction: column;
@@ -269,6 +281,7 @@ footer {
 
 .carousel-section {
   overflow-x: hidden;
+  padding: 20px 60px;
 }
 
 .wrapper {
@@ -285,12 +298,18 @@ footer {
 .card {
   margin: 10px;
   background-color: white;
+  border-radius: 50px;
   box-shadow: var(--shadow-3);
+  padding: 6px;
 }
 
 .card figure {
   width: 100%;
   aspect-ratio: 1/1;
+}
+
+.card figure img {
+  border-radius: 44px;
 }
 
 .crop-img {
@@ -301,68 +320,54 @@ footer {
 }
 
 .scroll-btn {
-  background-color: white;
+  background-color: var(--blue-light);
   color: black;
-  width: 26px;
-  height: 26px;
+  width: 56px;
+  height: 56px;
   border-radius: 100%;
+  border: 6px solid white;
   padding: 0;
-  margin: 30px 6px;
+  margin: 30px;
   transition: 0.3s;
-  box-shadow: none;
+  pointer-events: auto;
 }
 
 .scroll-btn:hover {
-  background-color: var(--blue-light);
-  box-shadow: var(--shadow-2);
+  width: 62px;
+  height: 62px;
+  margin: 27px;
 }
 
 /* More info modal styles ----------------------------------------------- */
 
-.modal-background {
-  background-color: #9fc7c58a;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 0 5%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal {
-  box-shadow: var(--shadow-1);
-  border-radius: 20px;
-  background-color: white;
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: flex-start;
+  background-image: linear-gradient(
+    white,
+    var(--blue-light),
+    var(--blue-light)
+  );
+  box-shadow: var(--shadow-4);
+  padding: 0 10% 36px;
 }
 
 .modal-content {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
   padding: 20px;
-  max-height: 80vh;
-  overflow-y: scroll;
 }
 
-.modal figure {
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-3);
+.modal-grid figure {
+  box-shadow: var(--shadow-1);
   border: 6px solid white;
 }
 
-.modal figure img {
+.modal-grid figure img {
   width: 100%;
-}
-
-.modal-header {
-  height: 40px;
-  padding: 0 10px;
-  box-shadow: var(--shadow-1);
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 /* Animations ------------------------------------------------- */
@@ -376,6 +381,12 @@ footer {
 }
 
 /* Responsive styles -------------------------------------- */
+
+@media screen and (max-width: 780px) {
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 @media screen and (max-width: 580px) {
   .show-sm {

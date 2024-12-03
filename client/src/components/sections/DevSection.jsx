@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
 
 import { GET_DEVS } from "../../utils/queries";
 
@@ -100,28 +100,26 @@ function DevSection(props) {
     // available from db: title, description, date, image, video, tech, collab, github, deployed
     return thing ? (
       <>
-        <section className="modal-background">
-          <div className="modal">
-            <div className="modal-header">
-              <XMarkIcon
-                style={{ width: "20px", cursor: "pointer" }}
-                onClick={handleClose}
-              ></XMarkIcon>
-            </div>
-            <div className="modal-content">
-              <figure>
-                <img src={thing.image}></img>
-              </figure>
-              <h1>{thing.title}</h1>
-              <div className="line-horizontal"></div>
-              <Tech></Tech>
-              <p>{thing.description}</p>
-              <Collab></Collab>
-              <Buttons {...thing}></Buttons>
-            </div>
-            <div className="spacer"></div>
+        <section className="modal-grid">
+          <figure>
+            <img src={thing.image}></img>
+          </figure>
+          <div className="modal-content">
+            <h1>{thing.title}</h1>
+            <div className="line-horizontal"></div>
+            <Tech></Tech>
+            <p>{thing.description}</p>
+            <Collab></Collab>
+            <Buttons {...thing}></Buttons>
           </div>
         </section>
+        <button className="close-btn" onClick={handleClose}>
+          <ChevronUpIcon
+            style={{
+              width: "20px",
+            }}
+          ></ChevronUpIcon>
+        </button>
       </>
     ) : (
       <></>
@@ -147,15 +145,14 @@ function DevSection(props) {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-        <h2>Development Things</h2>
-        <div className="line-2"></div>
+        <h3 style={{ alignSelf: "flex-start" }}>Development Things</h3>
         {loading ? (
           <h1>loading...</h1>
         ) : (
           <Carousel
             items={devThings}
             cardsPerSlide={cardsPerSlide}
-            cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
+            cardContainerWidth={(windowWidth - 110) / cardsPerSlide}
             CardComponent={CardComponent}
           ></Carousel>
         )}

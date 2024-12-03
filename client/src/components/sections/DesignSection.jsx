@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { ChevronUpIcon } from "@heroicons/react/24/outline";
 
 import { GET_DESIGNS } from "../../utils/queries";
 
@@ -22,24 +22,23 @@ function DesignSection(props) {
     // available from db: title, description, date, image
     return thing ? (
       <>
-        <section className="modal-background">
-          <div className="modal">
-            <div className="modal-header">
-              <XMarkIcon
-                style={{ width: "20px", cursor: "pointer" }}
-                onClick={handleClose}
-              ></XMarkIcon>
-            </div>
-            <div className="modal-content">
-              <figure>
-                <img src={thing.image}></img>
-              </figure>
-              <h1>{thing.title}</h1>
-              <p>{thing.description}</p>
-            </div>
-            <div className="spacer"></div>
+        <section className="modal-grid">
+          <figure>
+            <img src={thing.image}></img>
+          </figure>
+          <div className="modal-content">
+            <h1>{thing.title}</h1>
+            <div className="line-horizontal"></div>
+            <p>{thing.description}</p>
           </div>
         </section>
+        <button className="close-btn" onClick={handleClose}>
+          <ChevronUpIcon
+            style={{
+              width: "20px",
+            }}
+          ></ChevronUpIcon>
+        </button>
       </>
     ) : (
       <></>
@@ -65,15 +64,14 @@ function DesignSection(props) {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-        <h2>Design Things</h2>
-        <div className="line-2"></div>
+        <h3 style={{ alignSelf: "flex-start" }}>Design Things</h3>
         {loading ? (
           <h1>loading...</h1>
         ) : (
           <Carousel
             items={designThings}
             cardsPerSlide={cardsPerSlide}
-            cardContainerWidth={(windowWidth - 30) / cardsPerSlide}
+            cardContainerWidth={(windowWidth - 110) / cardsPerSlide}
             CardComponent={CardComponent}
           ></Carousel>
         )}

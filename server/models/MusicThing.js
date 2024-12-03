@@ -20,6 +20,10 @@ const musicThingSchema = new Schema({
   cover: {
     type: Boolean,
     default: false,
+  },
+  file: {
+    type: String,
+    default: "File missing",
   }
 });
 

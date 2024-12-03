@@ -110,6 +110,7 @@ export const CREATE_MUSIC_THING = gql`
     $date: Date
     $image: String
     $cover: Boolean
+    $file: String
   ) {
     createMusicThing(
       title: $title
@@ -117,6 +118,7 @@ export const CREATE_MUSIC_THING = gql`
       date: $date
       image: $image
       cover: $cover
+      file: $file
     ) {
       _id
       title
@@ -124,6 +126,7 @@ export const CREATE_MUSIC_THING = gql`
       date
       image
       cover
+      file
     }
   }
 `;

@@ -14,7 +14,7 @@ scalar Date
     createCraftThing (title: String, description: String, date: Date, image: String): CraftThing
     createDesignThing (title: String, description: String, date: Date, image: String): DesignThing
     createDevThing (title: String, description: String, date: Date, image: String, video: String, tech: [String], collab: [String], github: String, deployed: String): DevThing
-    createMusicThing (title: String, lyrics: String, date: Date, image: String, cover: Boolean): MusicThing
+    createMusicThing (title: String, lyrics: String, date: Date, image: String, cover: Boolean, file: String): MusicThing
   }
   
   type ArtThing {
@@ -61,6 +61,7 @@ scalar Date
     date: Date
     image: String
     cover: Boolean
+    file: String
   }
 `;
 

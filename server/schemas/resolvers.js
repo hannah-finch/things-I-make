@@ -78,13 +78,14 @@ const resolvers = {
       });
       return devThing;
     },
-    createMusicThing: async (_, { title, lyrics, date, image, cover }) => {
+    createMusicThing: async (_, { title, lyrics, date, image, cover, file }) => {
       const musicThing = await MusicThing.create({
         title: title,
         lyrics: lyrics,
         date: date,
         image: image,
         cover: cover,
+        file: file,
       });
       return musicThing;
     },
