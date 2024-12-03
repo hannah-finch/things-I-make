@@ -23,21 +23,28 @@ function ArtSection(props) {
     return thing ? (
       <>
         <section className="modal-background">
-          <div className="modal">
-            <div className="modal-header">
-              <XMarkIcon
-                style={{ width: "20px", cursor: "pointer" }}
-                onClick={handleClose}
-              ></XMarkIcon>
-            </div>
+          <XMarkIcon
+            style={{
+              width: "30px",
+              cursor: "pointer",
+              position: "fixed",
+              right: "30px",
+              top: "10px",
+              padding: "6px",
+              backgroundColor: "white",
+              borderRadius: "100%",
+            }}
+            onClick={handleClose}
+          ></XMarkIcon>
+          <div className="modal-grid">
+            <figure>
+              <img src={thing.image}></img>
+            </figure>
             <div className="modal-content">
-              <figure>
-                <img src={thing.image}></img>
-              </figure>
               <h1>{thing.title}</h1>
+              <div className="line-horizontal"></div>
               <p>{thing.description}</p>
             </div>
-            <div className="spacer"></div>
           </div>
         </section>
       </>

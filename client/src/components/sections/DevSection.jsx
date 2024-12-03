@@ -101,17 +101,24 @@ function DevSection(props) {
     return thing ? (
       <>
         <section className="modal-background">
-          <div className="modal">
-            <div className="modal-header">
-              <XMarkIcon
-                style={{ width: "20px", cursor: "pointer" }}
-                onClick={handleClose}
-              ></XMarkIcon>
-            </div>
+          <XMarkIcon
+            style={{
+              width: "30px",
+              cursor: "pointer",
+              position: "fixed",
+              right: "30px",
+              top: "10px",
+              padding: "6px",
+              backgroundColor: "white",
+              borderRadius: "100%",
+            }}
+            onClick={handleClose}
+          ></XMarkIcon>
+          <div className="modal-grid">
+            <figure>
+              <img src={thing.image}></img>
+            </figure>
             <div className="modal-content">
-              <figure>
-                <img src={thing.image}></img>
-              </figure>
               <h1>{thing.title}</h1>
               <div className="line-horizontal"></div>
               <Tech></Tech>
@@ -119,7 +126,6 @@ function DevSection(props) {
               <Collab></Collab>
               <Buttons {...thing}></Buttons>
             </div>
-            <div className="spacer"></div>
           </div>
         </section>
       </>
@@ -147,7 +153,7 @@ function DevSection(props) {
   return (
     <>
       <section className="flex-col flex-center-all carousel-section">
-      <h3 style={{alignSelf: "flex-start"}}>Development Things</h3>
+        <h3 style={{ alignSelf: "flex-start" }}>Development Things</h3>
         {loading ? (
           <h1>loading...</h1>
         ) : (

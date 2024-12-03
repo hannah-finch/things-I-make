@@ -104,14 +104,6 @@ p {
   margin: 20px 0;
 }
 
-/* Curretnly not being used */
-/* .line-2 {
-  background-color: black;
-  height: 2px;
-  margin: 10px 0 10px;
-  width: 160px;
-} */
-
 .spacer {
   height: 20px;
 }
@@ -119,10 +111,6 @@ p {
 .gray {
   background-color: var(--gray-light);
 }
-
-/* .spacer-lg {
-  height: 40px;
-} */
 
 section {
   padding: 20px 10%;
@@ -338,49 +326,41 @@ footer {
 /* More info modal styles ----------------------------------------------- */
 
 .modal-background {
-  background-color: #9fc7c58a;
+  background-color: #ffffffdf;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 0 5%;
+  padding: 40px 5%;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.modal {
-  box-shadow: var(--shadow-1);
-  border-radius: 20px;
-  background-color: white;
-}
-
-.modal-content {
-  padding: 20px;
-  max-height: 80vh;
   overflow-y: scroll;
 }
 
-.modal figure {
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-3);
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.modal-content {
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-1);
+  padding: 20px;
+}
+
+.modal-background figure {
+  box-shadow: var(--shadow-1);
   border: 6px solid white;
 }
 
-.modal figure img {
+.modal-background figure img {
   width: 100%;
-}
-
-.modal-header {
-  height: 40px;
-  padding: 0 10px;
-  box-shadow: var(--shadow-1);
-  border-radius: 20px 20px 0 0;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 /* Animations ------------------------------------------------- */
@@ -406,5 +386,13 @@ footer {
 
   nav {
     flex-direction: column;
+  }
+
+  .modal-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    margin-top: 20px;
   }
 }
