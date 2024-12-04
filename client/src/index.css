@@ -370,6 +370,19 @@ footer {
   width: 100%;
 }
 
+/* Form Styles ------------------------------------------------ */
+
+input, textarea {
+  border: none;
+  background-color: var(--gray-light);
+  line-height: 1.5;
+  padding: 4px;
+  margin: 4px 0;
+  border-radius: 6px;
+  font-family: Quicksand, serif;
+  font-size: 16px;
+}
+
 /* Animations ------------------------------------------------- */
 
 .rotate-180 {
