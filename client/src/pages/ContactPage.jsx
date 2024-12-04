@@ -88,6 +88,8 @@ const Form = () => {
   return (
     <div>
       <form ref={form} onSubmit={handleFormSubmit}>
+        <h1>Send a Message</h1>
+        <div className="spacer"></div>
         <input
           value={senderName}
           name="senderName"
@@ -105,7 +107,7 @@ const Form = () => {
           onChange={handleInputChange}
           onBlur={handleBlur}
           type="text"
-          placeholder="email"
+          placeholder="Email"
           required
         />
         <label htmlFor="email">{emailMessage}</label>
@@ -121,11 +123,10 @@ const Form = () => {
         />
         <label htmlFor="message">{messageMessage}</label>
         <br></br>
-        <button className="submit-btn" type="submit">
+        <button className="btn-green" type="submit">
           Submit
         </button>
       </form>
-
     </div>
   );
 };
@@ -133,9 +134,10 @@ const Form = () => {
 function ContactPage() {
   return (
     <>
-      <h1>Contact Me</h1>
-      <div className="spacer"></div>
-      <Form />
+      <section>
+        <div className="spacer"></div>
+        <Form />
+      </section>
     </>
   );
 }

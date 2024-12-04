@@ -372,15 +372,41 @@ footer {
 
 /* Form Styles ------------------------------------------------ */
 
-input, textarea {
-  border: none;
-  background-color: var(--gray-light);
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+}
+
+input,
+textarea {
+  border: 2px solid var(--blue-light);
+  outline: none;
   line-height: 1.5;
-  padding: 4px;
-  margin: 4px 0;
+  padding: 8px 12px;
   border-radius: 6px;
   font-family: Quicksand, serif;
   font-size: 16px;
+}
+
+textarea {
+  height: 160px;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  background-color: var(--blue-light);
+}
+
+label {
+  font-size: 14px;
+  align-self: flex-end;
+}
+
+form h1 {
+  align-self: center;
 }
 
 /* Animations ------------------------------------------------- */
